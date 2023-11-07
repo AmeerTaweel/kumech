@@ -41,7 +41,7 @@
   # Set a password with `passwd`
   users.users.${params.username} = {
     isNormalUser = true;
-    extraGroups = ["networkmanager" "wheel" "video"];
+    extraGroups = ["networkmanager" "wheel"];
     initialPassword = params.username;
   };
 
