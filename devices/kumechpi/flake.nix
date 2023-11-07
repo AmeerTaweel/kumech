@@ -20,6 +20,7 @@
       username = "user";
       timezone = "Asia/Istanbul";
       state-version = "23.11";
+      shell = "fish";
     };
   in {
     nixosConfigurations.${params.hostname} = nixpkgs.lib.nixosSystem {

@@ -48,6 +48,7 @@
     isNormalUser = true;
     extraGroups = ["networkmanager" "wheel"];
     initialPassword = params.username;
+    shell = pkgs.${params.shell};
   };
 
   # Enable popular shells
