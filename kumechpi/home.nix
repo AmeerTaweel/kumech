@@ -27,11 +27,13 @@
     flake-dir = config.home.sessionVariables.FLAKEDIR;
     flake = "${flake-dir}#${params.hostname}";
     nix-summary = "${pkgs.nixos-change-summary}/bin/nixos-change-summary";
+    nix-clean = "${pkgs.nixos-clean-store}/bin/nixos-clean-store";
   in {
     nx-boot = "sudo nixos-rebuild boot --flake ${flake} && ${nix-summary}";
     nx-build = "nixos-rebuild build --flake ${flake}";
     nx-switch = "sudo nixos-rebuild switch --flake ${flake} && ${nix-summary}";
     nx-summary = nix-summary;
+    nx-clean = nix-clean;
   };
 
   xdg.enable = true;

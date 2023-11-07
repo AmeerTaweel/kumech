@@ -72,13 +72,8 @@
     config.init.defaultBranch = "master";
   };
 
-  # Tmux Configuration
-  programs.tmux.enable = true;
-
   # Packages installed in system profile
-  environment.systemPackages = with pkgs; [
-    vim
-  ];
+  # environment.systemPackages = with pkgs; [ ];
 
   # Enable all the firmware with a license allowing redistribution
   hardware.enableRedistributableFirmware = true;
