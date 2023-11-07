@@ -50,6 +50,21 @@
     initialPassword = params.username;
   };
 
+  # Enable popular shells
+  programs = {
+    fish.enable = true;
+    zsh.enable = true;
+  };
+
+  # Git Configuration
+  programs.git = {
+    enable = true;
+    config.init.defaultBranch = "master";
+  };
+
+  # Tmux Configuration
+  programs.tmux.enable = true;
+
   # Packages installed in system profile
   environment.systemPackages = with pkgs; [
     vim
