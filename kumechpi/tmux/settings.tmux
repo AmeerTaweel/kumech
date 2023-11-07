@@ -1,5 +1,5 @@
 # Make tmux read bash colors
-set -g default-terminal "screen-256color"
+set -g default-terminal "xterm-256color"
 set -g terminal-overrides ",xterm-256color:Tc"
 
 # Enable mouse support
