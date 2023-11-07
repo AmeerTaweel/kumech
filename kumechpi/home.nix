@@ -6,6 +6,8 @@
 }: {
   imports = [
     ./shell.nix
+    ./tmux
+    ./vim
   ];
 
   # Enable home-manager
