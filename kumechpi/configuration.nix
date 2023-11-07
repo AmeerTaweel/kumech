@@ -73,7 +73,11 @@
   };
 
   # Packages installed in system profile
-  # environment.systemPackages = with pkgs; [ ];
+  environment.systemPackages = with pkgs; [
+    nixos-change-summary
+    nixos-clean-store
+    rpi-update-firmware
+  ];
 
   # Enable all the firmware with a license allowing redistribution
   hardware.enableRedistributableFirmware = true;
