@@ -71,6 +71,60 @@
     vim
   ];
 
+  # Enable all the firmware with a license allowing redistribution
+  hardware.enableRedistributableFirmware = true;
+  # Load the wireless regulatory database at boot
+  hardware.wirelessRegulatoryDatabase = true;
+
+  # Networking
+  networking.networkmanager.enable = true;
+  # We want to use the wireless interface to create an aceess point
+  # Don't manage the interface by `networkmanager`
+  networking.networkmanager.unmanaged = ["interface-name:${params.wlan}"];
+
+  # Access Point Configuration
+  services.dnsmasq.enable = true;
+  services.create_ap = {
+    enable = true;
+    settings = {
+      CHANNEL = "default";
+      GATEWAY = params.gateway;
+      WPA_VERSION = 2;
+      ETC_HOSTS = 0;
+      DHCP_DNS = "gateway";
+      NO_DNS = 0;
+      NO_DNSMASQ = 0;
+      HIDDEN = 0;
+      MAC_FILTER = 0;
+      ISOLATE_CLIENTS = 0;
+      SHARE_METHOD = "none";
+      IEEE80211N = 0;
+      IEEE80211AC = 0;
+      HT_CAPAB = "[HT40+]";
+      VHT_CAPAB = "";
+      DRIVER = "nl80211";
+      NO_VIRT = 1;
+      FREQ_BAND = "2.4";
+      DAEMONIZE = 0;
+      DAEMON_PIDFILE = "";
+      DAEMON_LOGFILE = "/dev/null";
+      NO_HAVEGED = 1;
+      WIFI_IFACE = params.wlan;
+      SSID = params.hostname;
+      PASSPHRASE = params.hostname;
+      USE_PSK = 0;
+    };
+  };
+
+  # Enable the OpenSSH daemon.
+  services.openssh.enable = true;
+
+  # Local DNS
+  # Lets hosts on the same network address the device by name
+  services.resolved.enable = true;
+  networking.networkmanager.connectionConfig."connection.mdns" = 2;
+  services.avahi.enable = true;
+
   # This option defines the first version of NixOS you have installed on this
   # particular machine, and is used to maintain compatibility with application
   # data (e.g. databases) created on older NixOS versions.

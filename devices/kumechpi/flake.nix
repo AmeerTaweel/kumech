@@ -21,6 +21,8 @@
       timezone = "Asia/Istanbul";
       state-version = "23.11";
       shell = "fish";
+      wlan = "wlan0";
+      gateway = "192.168.13.1";
     };
   in {
     nixosConfigurations.${params.hostname} = nixpkgs.lib.nixosSystem {
