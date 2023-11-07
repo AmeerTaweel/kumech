@@ -3,3 +3,6 @@
 
 # Nix Result Files
 **/result
+
+# Project Media
+media/
