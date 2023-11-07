@@ -10,6 +10,14 @@
     ./nix-index.nix
   ];
 
+  boot.initrd.availableKernelModules = [
+    "usbhid"
+    "usb_storage"
+    "vc4"
+    "pcie_brcmstb" # required for the pcie bus to work
+    "reset-raspberrypi" # required for vl805 firmware to load
+  ];
+
   # Use the extlinux boot loader. (NixOS wants to enable GRUB by default)
   boot.loader.grub.enable = false;
   # Enables the generation of /boot/extlinux/extlinux.conf
@@ -111,7 +119,7 @@
       NO_HAVEGED = 1;
       WIFI_IFACE = params.wlan;
       SSID = params.hostname;
-      PASSPHRASE = params.hostname;
+      PASSPHRASE = "";
       USE_PSK = 0;
     };
   };
