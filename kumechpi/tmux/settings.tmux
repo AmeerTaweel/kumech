@@ -69,10 +69,6 @@ set -g window-status-format "$WINDOW_STATUS_FORMAT #I #W "
 # Show hint on prefix key press
 set -g status-right "#{?client_prefix,$PREFIX_HIGHLIGHT_FORMAT ^B ,\
     }#[default]"
-
-# Separator
-set -ag status-right " "
-
 # Show zoom state
-set -ag status-right "#{?window_zoomed_flag,$ZOOMED_MODE_FORMAT ZOOMED ,\
-$NORMAL_MODE_FORMAT NORMAL }"
+set -ag status-right "#{?window_zoomed_flag, Z , N }"
+set -ag status-right "$TIME_FORMAT %H:%M "

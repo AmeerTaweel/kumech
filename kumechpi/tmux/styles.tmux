@@ -23,6 +23,5 @@ WINDOW_STATUS_CURRENT_FORMAT="#[fg=black]#[bg=green]"
 WINDOW_STATUS_FORMAT="#[fg=green]#[bg=black]"
 
 # Right Status Bar
-ZOOMED_MODE_FORMAT="#[fg=blue]#[bg=white]#[bold]"
-NORMAL_MODE_FORMAT="#[fg=red]#[bg=white]#[bold]"
 PREFIX_HIGHLIGHT_FORMAT="#[fg=white]#[bg=blue]#[bold]"
+TIME_FORMAT="#[fg=black]#[bg=yellow]"
