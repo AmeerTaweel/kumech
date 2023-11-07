@@ -1,4 +1,8 @@
-{pkgs, ...}: let
+{
+  config,
+  pkgs,
+  ...
+}: let
   shellAliases = {
     # Enable `grep` colors when the output is a terminal
     grep = "grep --color=auto";
@@ -16,28 +20,22 @@
     # Create parent directories on demand
     mkdir = "mkdir -pv";
 
-    # Use Eza instead of ls
-    ls = "eza";
-    l = "ls -lHF";
-    ll = "ls -lHF";
-    la = "ls -lHFa";
-    lla = "ls -lHFa";
-    lt = "ls --tree";
-    lta = "ls --tree -a";
-    lS = "ls -1"; # one column
-    lSa = "ls -1a";
-    lx = "ls -lbhHigUmuSa@"; # list extended
-
     # Tolerate Mistakes
     sl = "ls";
     "cd.." = "cd ..";
   };
 in {
+  home.sessionVariables = {
+    HISTFILE = "${config.xdg.stateHome}/bash/history";
+  };
+
   programs.bash = {
-    interactiveShellInit = ''
+    enable = true;
+    initExtra = ''
       # Enable Vi bindings
       set -o vi
     '';
+    historyIgnore = ["ls" "cd" "exit"];
     inherit shellAliases;
   };
 
@@ -57,22 +55,29 @@ in {
   # Easy directory jumping in all shells
   programs.autojump.enable = true;
 
-  programs.htop.enable = true;
+  programs.eza = {
+    enable = true;
+    enableAliases = true;
+  };
 
   programs.direnv = {
     enable = true;
     nix-direnv.enable = true;
   };
 
-  environment.systemPackages = with pkgs; [
+  programs.htop.enable = true;
+
+  programs.btop = {
+    enable = true;
+    settings.vim_keys = true;
+  };
+
+  home.packages = with pkgs; [
     cht-sh # Access cheatsheets from terminal
-    tldr
 
     file # Determina file type
     tree # List directory contents in a tree-like format
     curl # Transfer URLs
-    btop # Modern `htop`
-    eza # Modern `ls` replacement
 
     ffmpeg # Video Converter
 
@@ -88,4 +93,10 @@ in {
 
     sshfs
   ];
+
+  # `tldr` comand
+  programs.tealdeer = {
+    enable = true;
+    settings.updates.auto_update = true;
+  };
 }

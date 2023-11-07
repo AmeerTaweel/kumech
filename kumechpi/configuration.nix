@@ -9,7 +9,6 @@
     ./custom-pkgs-overlay.nix
     ./nix.nix
     ./nix-index.nix
-    ./shell.nix
   ];
 
   boot.initrd.availableKernelModules = [

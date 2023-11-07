@@ -4,6 +4,9 @@
   inputs = {
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
 
+    home-manager.url = "github:nix-community/home-manager";
+    home-manager.inputs.nixpkgs.follows = "nixpkgs";
+
     nix-index-database.url = "github:nix-community/nix-index-database";
     nix-index-database.inputs.nixpkgs.follows = "nixpkgs";
   };
@@ -11,6 +14,7 @@
   outputs = {
     self,
     nixpkgs,
+    home-manager,
     ...
   } @ inputs: let
     inherit (self) outputs;
@@ -25,10 +29,23 @@
       gateway = "192.168.13.1";
     };
   in {
+    # NixOS configuration entrypoint
+    # Available through `nixos-rebuild --flake .#your-hostname`
     nixosConfigurations.${params.hostname} = nixpkgs.lib.nixosSystem {
       inherit (params) system;
       specialArgs = {inherit inputs outputs params;};
-      modules = [./configuration.nix];
+      modules = [
+        ./configuration.nix
+        home-manager.nixosModules.home-manager
+        {
+          home-manager.useGlobalPkgs = true;
+          home-manager.useUserPackages = true;
+          home-manager.users.${params.username} = {
+            imports = [./home.nix];
+            _module.args = {inherit inputs outputs params;};
+          };
+        }
+      ];
     };
   };
 }
