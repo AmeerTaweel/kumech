@@ -3,4 +3,5 @@
 {pkgs ? (import ../nixpkgs.nix) {}}: {
   nixos-change-summary = pkgs.callPackage ./nixos-change-summary {};
   nixos-clean-store = pkgs.callPackage ./nixos-clean-store {};
+  rpi-update-firmware = pkgs.callPackage ./rpi-update-firmware {};
 }

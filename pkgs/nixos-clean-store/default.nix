@@ -1,4 +1,4 @@
-# View configuration diff between last and current system builds
+# Clean /nix/store
 {writeShellScriptBin, ...}:
 writeShellScriptBin "nixos-clean-store" ''
   sudo nix-collect-garbage -d
