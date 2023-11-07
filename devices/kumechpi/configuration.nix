@@ -3,7 +3,12 @@
   pkgs,
   ...
 }: {
-  imports = [./hardware-configuration.nix];
+  imports = [
+    ./hardware-configuration.nix
+
+    ./nix.nix
+    ./nix-index.nix
+  ];
 
   # Use the extlinux boot loader. (NixOS wants to enable GRUB by default)
   boot.loader.grub.enable = false;
