@@ -21,6 +21,9 @@
 
       # Ground Control Software
       qgroundcontrol
+
+      # View RTSP Stream
+      vlc
     ];
   };
 }
