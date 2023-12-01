@@ -35,6 +35,12 @@ Go to the Interface Option and then click Serial Port.
 - Select Yes to enable the serial interface.
 - Click Finish and restart the RPi.
 
+```bash
+sudo apt install git
+sudo apt install vim
+sudo apt install tmux
+```
+
 ## Sixfab LTE Module
 
 - [Getting Started with Sixfab Base HAT + Quectel Modules](https://docs.sixfab.com/docs/getting-started-with-base-hat-and-quectel-ec25-eg25-module)
