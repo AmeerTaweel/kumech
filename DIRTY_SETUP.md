@@ -3,8 +3,11 @@
 ## Install
 
 OS: Raspberry PI Lite x64
+
 Hotspot Name: phone002
+
 Hotspot Password: ZeroNoGato
+
 Enable SSH with password login
 
 ## SSH
