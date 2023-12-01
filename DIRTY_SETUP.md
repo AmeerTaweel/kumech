@@ -18,6 +18,16 @@ Go to the Interface Option and then click Serial Port.
 Hotspot Name: phone002
 Hotspot Password: ZeroNoGato
 
+## SSH
+
+Be on the same hotspot.
+
+Run `ifconfig`.
+
+Get the IP.
+
+Run: `sudo nmap -sS -p 22 $IP/24`
+
 ## Sixfab LTE Module
 
 - [Getting Started with Sixfab Base HAT + Quectel Modules](https://docs.sixfab.com/docs/getting-started-with-base-hat-and-quectel-ec25-eg25-module)
