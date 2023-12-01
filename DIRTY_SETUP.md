@@ -1,6 +1,23 @@
 # Dirty Setup
 
-## Install Raspberry PI OS Lite x64
+## Install
+
+OS: Raspberry PI Lite x64
+Hotspot Name: phone002
+Hotspot Password: ZeroNoGato
+Enable SSH with password login
+
+## SSH
+
+Be on the same hotspot.
+
+Run `ifconfig`.
+
+Get the IP.
+
+Run: `sudo nmap -sS -p 22 $IP/24`
+
+## Update System
 
 ```bash
 sudo apt update
@@ -14,19 +31,6 @@ Go to the Interface Option and then click Serial Port.
 - Select No to disable serial login shell.
 - Select Yes to enable the serial interface.
 - Click Finish and restart the RPi.
-
-Hotspot Name: phone002
-Hotspot Password: ZeroNoGato
-
-## SSH
-
-Be on the same hotspot.
-
-Run `ifconfig`.
-
-Get the IP.
-
-Run: `sudo nmap -sS -p 22 $IP/24`
 
 ## Sixfab LTE Module
 
