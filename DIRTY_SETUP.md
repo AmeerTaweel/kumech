@@ -15,6 +15,9 @@ Go to the Interface Option and then click Serial Port.
 - Select Yes to enable the serial interface.
 - Click Finish and restart the RPi.
 
+Hotspot Name: phone002
+Hotspot Password: ZeroNoGato
+
 ## Sixfab LTE Module
 
 - [Getting Started with Sixfab Base HAT + Quectel Modules](https://docs.sixfab.com/docs/getting-started-with-base-hat-and-quectel-ec25-eg25-module)
@@ -34,6 +37,10 @@ ping -I wwan0 -c 5 sixfab.com
 ```
 
 ## Rpanion Build
+
+- [GitHub Repo](https://github.com/stephendade/Rpanion-server)
+- [Home Page](https://www.docs.rpanion.com/software/rpanion-server)
+- [0.10.0 User Manual](https://www.docs.rpanion.com/software/rpanion_server_v010)
 
 ```bash
 cd ~/ && git clone --recursive https://github.com/stephendade/Rpanion-server.git
